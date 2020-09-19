@@ -101,10 +101,6 @@ for(var i=1; i< people.length+1; i++){
 
 app.post("/overview", function(req, res) {
 
-
-
-//  console.log(req.body)
-
   res.redirect("overview");
 })
 
