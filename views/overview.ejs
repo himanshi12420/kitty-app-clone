@@ -1,0 +1,26 @@
+<%- include("partials/header"); -%>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<p>You are <select name="pName" id="personn">
+      <% for(var i=0; i<person.length; i++){ %>
+      <option name="personn" value="person <% i+2 %>"><%= person[i] %></option>
+      <% } %>
+    </select></p>
+
+<h2>Overview</h2>
+
+<p>What for:<span><%= mWhatFor %></span></p>
+<p>This event cost the group:<span>€ <%= mTotalMoney %>.00</span></p>
+<p>It cost you:<span>€ <%= mMyCost %>.00</span></p>
+<p>You've paid:<span>€ <%= mPaidByMe %>.00</span></p>
+<p>You're owed:<span>€ <%= mOwed %>.00</span></p>
+
+
+
+
+
+
+
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,63 @@
+<%- include("partials/header"); -%>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h3 class="heading">Create a new Kitty</h3>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form">
+
+
+      <form action="/" method="post">
+        <div class="form-group">
+          <label> Event name </label><br />
+          <input class="form-control" type="text" name="event_name" placeholder="Test" value="<%=mEvent_name %>"  required><br />
+          <label> Home Currency </label><br />
+          <select class="form-control" name="currency">
+            <option value="inr">INR</option>
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="gbp">GBP</option>
+            <option value="cad">CAD</option>
+            <option value="aud">AUD</option>
+            <option value="jpy">JPY</option>
+          </select>
+
+          <hr class="hr">
+
+          <h4> Participants </h4>
+
+          <label> You </label><br />
+          <input class="form-control" type="text" name="name" placeholder="Jack" value="<%= mName %>" required>
+          <br />
+          <input class="form-control" type="email" name="email" placeholder="xyz@gmail.com" value="<%= mEmail %>">
+          <br />
+          <% for(var i=0; i<person.length; i++){ %>
+          <label> Person <%= i+2 %></label><br />
+          <input class="form-control" type="text" value=<%= person[i] %>>
+          <br />
+          <% } %>
+          <label>Person <%= (person.length)+2 %> </label><br />
+          <input class="form-control" type="text" name="name_2">
+          <button class="btn btn-primary btn1" type="submit" name="new_person">+ Add new person</button>
+        </div>
+      </form>
+
+      <hr class="hr">
+
+      <form class="form" action="/expense" method="post">
+        <div class="form-group">
+          <button id="button" class="btn btn-warning" type="submit" name="create">Create Kitty</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <h4>Good examples for creating a kitty</h4>
+    <p class="vl1">The party is over and you want to split the costs with your friends.</p>
+  </div>
+</div>
+
+
+
+<%- include("partials/footer"); -%>

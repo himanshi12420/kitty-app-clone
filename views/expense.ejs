@@ -1,0 +1,68 @@
+<%- include("partials/header"); -%>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<a href="/">
+  < Back </a>
+    <div class="row">
+      <div class="col-sm-6">
+
+        <div class="expense">
+          <button class="expense-head">
+          <a href="/expense"> Expense</a>
+          </button>
+          <button class="expense-head">
+          <a href="/money_given">Money Given</a>
+          </button>
+          <button class="expense-head">
+            <a href="/income"> Income</a>
+          </button>
+        </div>
+
+        <form class="form" action="/expense" method="post">
+          <div class="form-group">
+            <select name="pName">
+              <% for(var i=0; i<person.length; i++){ %>
+              <option value="<%= person[i] %>"><%= person[i] %></option>
+              <% } %>
+            </select> paid for something<br /><br />
+            <label> How much? </label><br />
+            <input class="form-control" type="number" name="money" placeholder="100" required>
+            <br />
+            <input type="radio" name="split" id="radio1"> Split equally between everyone<br />
+            <input type="radio" name="split" id="radio2"> Split differently<br /><br />
+            <label> What for? </label><br />
+            <input class="form-control" type="text" name="what_for" placeholder="Ski Pass">
+            <br />
+            <label> When? </label><br />
+            <input class="form-control" type="date" name="date" value= "" >
+            <br />
+            <button id="button_1" class="btn btn-primary btn1" type="submit" name="add">Add</button>
+            <button class="btn btn-warning" type="submit" name="cancel">Cancel</button>
+
+          </div>
+      </div>
+
+
+
+      <div class="col-sm-6">
+        <h4>Some ideas</h4>
+        <p class="vl"><%= mName %> paid for the rental car.</p>
+        <p class="vl"><%= mName %> got some supplies from the supermarket.</p>
+      </div>
+
+      </form>
+      <form class="overview-button" action="/overview" method="post">
+        <button class="btn btn-warning" type="submit" name="overview">Overview</button>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <%- include("partials/footer"); -%>

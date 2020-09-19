@@ -1,0 +1,59 @@
+<%- include("partials/header"); -%>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<a href="/">
+  < Back </a>
+    <div class="row">
+      <div class="col-sm-6">
+
+        <div class="expense">
+          <div class="expense-head">
+            <a href="/expense"> Expense</a>
+          </div>
+          <div class="expense-head">
+            <a href="/money_given">Money Given</a>
+          </div>
+          <div class="expense-head">
+            <a href="/income"> Income</a>
+          </div>
+        </div>
+
+        <form class="form" action="/expense" method="post">
+          <div class="form-group">
+            <select name="name">
+              <% for(var i=0; i<person.length; i++){ %>
+              <option value="name"><%= person[i] %></option>
+              <% } %>
+            </select> gave money to someone.<br /><br />
+            <label> How much? </label><br />
+            <input class="form-control" type="number" name="money" placeholder="100">
+            <br />
+            <label> To whom? </label><br/>
+            <input class="form-control" type="text" name="what_for" placeholder="Ski Pass">
+            <br />
+            <label> When? </label><br />
+            <input class="form-control" type="date" name="date" placeholder="19/09/2020">
+            <br />
+            <button class="btn btn-primary btn1" type="submit" name="add">Add</button><button class="btn btn-warning" type="submit" name="cancel">Cancel</button>
+          </div>
+      </div>
+
+      <div class="col-sm-6">
+        <h4>Some ideas</h4>
+        <p class="vl">Jack paid for the rental car.</p>
+        <p class="vl">Jack got some supplies from the supermarket.</p>
+      </div>
+
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <%- include("partials/footer"); -%>
